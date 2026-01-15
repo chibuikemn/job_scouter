@@ -58,3 +58,6 @@ job-bot/
 ├── requirements.txt
 └── README.md
 
+## To RUN
+make sure your in directory is set to job-bot
+ input : python main.py
