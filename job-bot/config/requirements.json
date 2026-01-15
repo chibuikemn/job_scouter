@@ -1,0 +1,7 @@
+{
+  "titles": ["Software Engineer", "Data Analyst", "Backend Engineer"],
+  "skills": ["Python", "Java", "SQL", "Git"],
+  "locations": ["Remote", "United States"],
+  "experience_level": "entry",
+  "min_match_score": 0.75
+}
