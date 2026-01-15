@@ -15,6 +15,8 @@ playwright install
    - Enable Google Sheets API
    - Download credentials.json
    - Create a sheet named "Job Applications"
+   - share the sheet with the service account email (looks like xxx@xxx.iam.gserviceaccount.com)
+   P.S: if you skip this it will fail
 
 3. Configure job criteria in `config/requirements.json`
 

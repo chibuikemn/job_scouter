@@ -3,5 +3,22 @@
   "skills": ["Python", "Java", "SQL", "Git","SCADA","JavaScript","PLC"],
   "locations": ["Remote", "United States", "Canada"],
   "experience_level": "entry",
-  "min_match_score": 0.75
+  "min_match_score": 0.75,
+  "platforms": {
+    "linkedin": {
+      "enabled": true,
+      "search_urls": [
+        "https://www.linkedin.com/jobs/search/?keywords=software%20engineer&location=Remote",
+        "https://www.linkedin.com/jobs/search/?keywords=python%20developer&location=United%20States"
+      ]
+    },
+    "greenhouse": {
+      "enabled": true,
+      "company_tokens": ["example_company", "another_company"]
+    },
+    "lever": {
+      "enabled": true,
+      "company_names": ["example-company", "another-company"]
+    }
+  }
 }

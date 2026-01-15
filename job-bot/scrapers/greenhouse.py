@@ -7,9 +7,18 @@ class GreenhouseScraper:
     
     def get_company_jobs(self, company_token):
         url = f"{self.api_base}/{company_token}/jobs"
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.json().get('jobs', [])
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                jobs = response.json().get('jobs', [])
+                return [{
+                    'title': job.get('title', ''),
+                    'company': job.get('departments', [{}])[0].get('name', '') if job.get('departments') else '',
+                    'url': job.get('absolute_url', ''),
+                    'content': job.get('content', '')
+                } for job in jobs]
+        except:
+            pass
         return []
     
     def scrape_company_page(self, company_url):
