@@ -2,7 +2,7 @@
 
 Automated job search and matching system following the blueprint architecture.
 
-## Setup
+## Setup (one-time)
 
 1. Install dependencies:
 ```bash
@@ -32,3 +32,27 @@ playwright install
 ## Architecture
 
 Config → Job Sources → Parser/Scraper → Job Matcher → Google Sheets → Review
+
+## Sturcture
+this is a graphql on how it works:
+job-bot/
+│
+├── main.py                  # Entry point (you run this)
+│
+├── config/
+│   └── requirements.json    # Your job preferences
+│
+├── scrapers/
+│   └── greenhouse.py        # Pulls jobs from Greenhouse sites
+│
+├── matcher/
+│   └── keywords.py          # Scores job vs your skills
+│
+├── sheets/
+│   └── logger.py            # Writes to Google Sheets
+│
+├── credentials.json         # Google API credentials (DO NOT COMMIT)
+│
+├── requirements.txt
+└── README.md
+

@@ -1,7 +1,7 @@
 {
   "titles": ["Software Engineer", "Data Analyst", "Backend Engineer"],
-  "skills": ["Python", "Java", "SQL", "Git"],
-  "locations": ["Remote", "United States"],
+  "skills": ["Python", "Java", "SQL", "Git","SCADA","JavaScript","PLC"],
+  "locations": ["Remote", "United States", "Canada"],
   "experience_level": "entry",
   "min_match_score": 0.75
 }
