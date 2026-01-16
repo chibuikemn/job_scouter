@@ -1,9 +1,9 @@
 {
-  "titles": ["Software Engineer", "Data Analyst", "Backend Engineer"],
+  "titles": ["Software Engineer", "Data Analyst", "Backend Engineer", "Data Engineer", "Software Developer"],
   "skills": ["Python", "Java", "SQL","MySQL", "Git","SCADA","JavaScript","PLC"],
   "locations": ["Remote", "United States", "Canada"],
   "experience_level": "entry",
-  "min_match_score": 0.3,
+  "min_match_score": 0.35,
   "platforms": {
     "linkedin": {
       "enabled": true,
@@ -14,11 +14,11 @@
     },
     "greenhouse": {
       "enabled": true,
-      "company_tokens": ["example_company", "another_company"]
+      "company_tokens": ["stripe", "airbnb", "coinbase", "notion", "asana", "datadog", "mongodb"]
     },
     "lever": {
       "enabled": true,
-      "company_names": ["example-company", "another-company"]
+      "company_names": ["spotify", "robinhood", "twitch", "databricks", "hubspot", "scaleai"]
     }
   }
 }
