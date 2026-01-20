@@ -1,4 +1,5 @@
 import requests
+from bs4 import BeautifulSoup
 
 class LeverScraper:
     def __init__(self):
@@ -10,12 +11,19 @@ class LeverScraper:
             response = requests.get(url)
             if response.status_code == 200:
                 jobs = response.json()
-                return [{
-                    'title': job.get('text', ''),
-                    'company': company_name,
-                    'url': job.get('hostedUrl', ''),
-                    'content': job.get('description', '')
-                } for job in jobs]
+                result = []
+                for job in jobs:
+                    description_html = job.get('description', '') + ' ' + job.get('descriptionPlain', '')
+                    soup = BeautifulSoup(description_html, 'html.parser')
+                    description_text = soup.get_text(separator=' ', strip=True)
+                    
+                    result.append({
+                        'title': job.get('text', ''),
+                        'company': company_name,
+                        'url': job.get('hostedUrl', ''),
+                        'content': description_text
+                    })
+                return result
         except:
             pass
         return []

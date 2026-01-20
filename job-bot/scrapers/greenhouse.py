@@ -1,5 +1,5 @@
 import requests
-from playwright.sync_api import sync_playwright
+from bs4 import BeautifulSoup
 
 class GreenhouseScraper:
     def __init__(self):
@@ -11,15 +11,32 @@ class GreenhouseScraper:
             response = requests.get(url)
             if response.status_code == 200:
                 jobs = response.json().get('jobs', [])
-                return [{
-                    'title': job.get('title', ''),
-                    'company': job.get('departments', [{}])[0].get('name', '') if job.get('departments') else '',
-                    'url': job.get('absolute_url', ''),
-                    'content': job.get('content', '')
-                } for job in jobs]
+                result = []
+                for job in jobs:
+                    job_id = job.get('id')
+                    job_detail = self._get_job_detail(company_token, job_id)
+                    result.append({
+                        'title': job.get('title', ''),
+                        'company': company_token,
+                        'url': job.get('absolute_url', ''),
+                        'content': job_detail
+                    })
+                return result
         except:
             pass
         return []
+    
+    def _get_job_detail(self, company_token, job_id):
+        url = f"{self.api_base}/{company_token}/jobs/{job_id}"
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                job_data = response.json()
+                soup = BeautifulSoup(job_data.get('content', ''), 'html.parser')
+                return soup.get_text(separator=' ', strip=True)
+        except:
+            pass
+        return ''
     
     def scrape_company_page(self, company_url):
         jobs = []

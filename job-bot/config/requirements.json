@@ -6,7 +6,7 @@
   "min_match_score": 0.35,
   "platforms": {
     "linkedin": {
-      "enabled": true,
+      "enabled": false,
       "search_urls": [
         "https://www.linkedin.com/jobs/search/?keywords=software%20engineer&location=Remote",
         "https://www.linkedin.com/jobs/search/?keywords=python%20developer&location=United%20States"

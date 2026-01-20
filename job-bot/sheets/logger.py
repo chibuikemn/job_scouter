@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
+import time
 
 class SheetsLogger:
     def __init__(self, credentials_path):
@@ -18,3 +19,5 @@ class SheetsLogger:
     def log_job(self, company, role, link, score, platform, status="Not Applied"):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.sheet.append_row([timestamp, company, role, link, score, platform, status])
+        
+    def
