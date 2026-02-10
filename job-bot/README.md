@@ -61,3 +61,4 @@ job-bot/
 ## To RUN
 make sure your in directory is set to job-bot
  input : python main.py
+         python ui.py(for user interface)
